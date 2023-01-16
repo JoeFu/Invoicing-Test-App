@@ -1,32 +1,44 @@
-# Invoicing-Test-App
+# Invoicing Application 
 
-Hello there. 
-Your mission, should you choose to accept it, is to complete a simple Invoice application.
-The existing application allows a user to create Invoices and then add line items to the invoice.
+## Front End - Vue.js
 
-Your tasks
-1.	On the screen for an individual invoice, display the total value of the line items for that invoice.
-2.	A line item needs to be marked as billable and non-billable. Add the ability to mark line items as either billable or non-billable, and update the display you created for the first task to show:
-a.	Total value of line items (all line items)
-b.	Total value of the invoice (billable line items only)
-3.	Create an endpoint that outputs a JSON report of all the invoices in the system in the following format:
+You will need to install Yarn and Node.js prior to this.
 
-{
-  "invoices": [
-    {
-      "id": 1,
-      "description": "some description",
-      "totalValue": 1234,
-      "totalBillableValue": 1234,
-      "totalNumberLineItems": 5
-    }
-  ]
-}
- 
+This is contained in the `andreyev-interview` folder. You can run this project by doing the following:
 
-Guidelines
--	Feel free to make any modifications to the code functionality and/or structure as you see fit
--	Feel free to use any external libraries as long as you can justify it
--	Feel free to fix bugs and improve the code quality
--	However, focus on getting the requirements implemented and do worry about the time spent on the task
--	We values great UX, but for the purposes of this exercise, there is no need to make it pretty
+```
+# Change to the folder
+cd andreyev-interview
+
+# Restore the dependencies
+yarn install
+
+# Run the app
+yarn serve
+```
+
+## Back End - .NET 5
+
+You will need to install the latest dotnet toolchain that supports .NET 5. The simplest approach is to install the latest version of Visual Studio.
+
+You can open the `.sln` from Visual Studio to get started.
+
+### Running the database migrations
+
+To run the database migrations, install the Entity Framework Core tools from https://docs.microsoft.com/en-us/ef/core/cli/dotnet.
+
+Then run the following:
+
+```
+# Change into the folder
+cd AndreyevInterview
+
+# Run the database migrations
+dotnet ef database update
+```
+
+### Running the server
+
+You can run the application using Visual Studio. Select the `AndreyevInterview` option instead of `IIS Express` when running in Visual Studio to run the server using Kestrel.
+
+The front end has been set up to expect the backend to be available at `http://localhost:5000`. This will be the case if you run the back end using Kestrel.
